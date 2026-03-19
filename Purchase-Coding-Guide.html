@@ -54,7 +54,7 @@
       width: 260px;
       height: 260px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(29,78,216,.10), rgba(29,78,216,0));
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.10), rgba(29, 78, 216, 0));
       right: -80px;
       top: -80px;
       pointer-events: none;
@@ -65,7 +65,7 @@
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
       color: var(--accent);
       background: var(--accent-soft);
       padding: 8px 12px;
@@ -131,7 +131,7 @@
       background: #fbfdff;
       font-size: 15px;
       outline: none;
-      transition: .18s ease;
+      transition: 0.18s ease;
     }
 
     .search-input:focus {
@@ -175,36 +175,58 @@
       font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .06em;
+      letter-spacing: 0.06em;
       color: var(--muted);
       margin: 0 0 10px;
     }
 
-    .question-group {
+    .question-group,
+    .follow-up-options {
       display: grid;
       gap: 12px;
+    }
+
+    .option-btn,
+    .mini-btn,
+    .copy-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: 0.18s ease;
+      color: var(--text);
     }
 
     .option-btn {
       width: 100%;
       text-align: left;
-      border: 1px solid var(--border);
-      background: #fff;
       padding: 14px 16px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: .18s ease;
       font-size: 15px;
-      color: var(--text);
     }
 
-    .option-btn:hover {
+    .mini-btn {
+      text-align: left;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+
+    .copy-btn {
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .option-btn:hover,
+    .mini-btn:hover,
+    .copy-btn:hover {
       border-color: #bfdbfe;
       background: #f8fbff;
       transform: translateY(-1px);
     }
 
-    .option-btn.active {
+    .option-btn.active,
+    .mini-btn.active {
       border-color: var(--accent);
       background: var(--accent-soft);
       color: #0f172a;
@@ -227,33 +249,6 @@
     .follow-up-question {
       margin: 0 0 12px;
       font-size: 15px;
-      font-weight: 700;
-    }
-
-    .follow-up-options {
-      display: grid;
-      gap: 10px;
-    }
-
-    .mini-btn {
-      border: 1px solid var(--border);
-      background: #fff;
-      border-radius: 14px;
-      padding: 12px 14px;
-      text-align: left;
-      font-size: 14px;
-      cursor: pointer;
-      transition: .18s ease;
-    }
-
-    .mini-btn:hover {
-      border-color: #bfdbfe;
-      background: #fff;
-    }
-
-    .mini-btn.active {
-      border-color: var(--accent);
-      background: var(--accent-soft);
       font-weight: 700;
     }
 
@@ -323,17 +318,31 @@
       font-weight: 800;
     }
 
-    .summary-box {
-      margin: 0 0 20px;
-      padding: 18px;
+    .summary-box,
+    .info-block,
+    .examples,
+    .exception-box,
+    .copy-box {
+      margin-top: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
       border-radius: 18px;
-      background: linear-gradient(135deg, #ecfdf5, #ffffff);
-      border: 1px solid #b7ebd2;
+      padding: 18px;
     }
 
-    .summary-box h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
+    .summary-box {
+      margin-top: 0;
+      background: linear-gradient(135deg, #ecfdf5, #ffffff);
+      border-color: #b7ebd2;
+    }
+
+    .summary-box h3,
+    .info-block h3,
+    .examples h3,
+    .exception-box h3,
+    .copy-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
     }
 
     .summary-box p {
@@ -343,6 +352,18 @@
       font-size: 14px;
     }
 
+    .smart-banner {
+      margin: 0 0 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
     .grid-two {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -350,20 +371,9 @@
       margin-top: 14px;
     }
 
-    .info-block {
-      background: #fafafa;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .info-block h3 {
-      margin: 0 0 10px;
-      font-size: 16px;
-    }
-
     .info-block p,
-    .info-block ul {
+    .info-block ul,
+    .exception-box p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
@@ -372,21 +382,6 @@
 
     .info-block ul {
       padding-left: 18px;
-    }
-
-    .examples,
-    .exception-box {
-      margin-top: 16px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .examples h3,
-    .exception-box h3 {
-      margin: 0 0 12px;
-      font-size: 16px;
     }
 
     .chip-wrap {
@@ -404,11 +399,68 @@
       border: 1px solid #e5e7eb;
     }
 
-    .exception-box p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.65;
+    .reactive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .reactive-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: #fcfdff;
+    }
+
+    .reactive-item.highlight {
+      border-color: #93c5fd;
+      background: #eff6ff;
+      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.18);
+    }
+
+    .reactive-item .icon {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .reactive-item .gl {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent-deep);
+      margin-bottom: 6px;
+    }
+
+    .reactive-item .name {
       font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .reactive-item .dept-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .copy-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .copy-output {
+      width: 100%;
+      min-height: 88px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      font: inherit;
+      line-height: 1.55;
+      resize: vertical;
+      background: #fff;
+      color: var(--text);
     }
 
     .footer-note {
@@ -418,11 +470,9 @@
     }
 
     @media (max-width: 960px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .grid-two {
+      .layout,
+      .grid-two,
+      .reactive-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -461,7 +511,7 @@
         </div>
 
         <div class="helper-box">
-          Tip: repairs usually stay in <strong>Reactive Supplies</strong>, full like-for-like replacements usually move to <strong>FFE Reserve</strong>, and upgrades or added capability usually move to <strong>CapEx</strong>.
+          Tip: repairs usually stay in <strong>Reactive Supplies</strong> (ex: door handle), full item replacements move to <strong>FFE Reserve</strong> (ex: full door), and upgrades or added capability move to <strong>CapEx</strong>.
         </div>
       </div>
 
@@ -470,6 +520,12 @@
           Choose a purchase type or search for an item to show the recommended coding.
         </div>
       </div>
+    </section>
+
+    <section id="bottomReactiveSection" class="panel" style="margin-top:24px; display:none;">
+      <h2>Reactive Supplies Breakdown</h2>
+      <p class="subtext">Quick reference for all Reactive Supplies GLs and departments.</p>
+      <div id="bottomReactiveBreakdown" class="reactive-grid"></div>
     </section>
   </div>
 
@@ -481,6 +537,7 @@
         title: 'Unit Supplies',
         shortLabel: 'Use in Unit',
         coding: '7706 - Unit Supplies',
+        department: '300 - Property Management - Prop. Service G&A',
         summary: 'Use this when the purchase is a normal in-unit item used by guests and replaced occasionally due to wear, loss, or breakage.',
         whatIs: 'Unit Supplies are long-term consumable items used inside a guest unit that support normal operation and guest use. These items are not replaced on every turn but are expected to wear out, break, or go missing over time and be replaced periodically. They are part of the standard unit setup and do not materially improve or upgrade the unit.',
         characteristics: [
@@ -489,10 +546,7 @@
           'Replaced occasionally due to wear, breakage, or loss',
           'Does not extend asset life or improve value'
         ],
-        examples: [
-          'Plates', 'Bowls', 'Cups', 'Mugs', 'Silverware', 'Serving utensils', 'Pots', 'Pans', 'Baking sheets',
-          'Cutting boards', 'Knives', 'Irons', 'Ironing boards', 'Hair dryers', 'Trash cans', 'Basic small guest-use appliances'
-        ],
+        examples: ['Plates', 'Bowls', 'Cups', 'Mugs', 'Silverware', 'Serving utensils', 'Pots', 'Pans', 'Baking sheets', 'Cutting boards', 'Knives', 'Irons', 'Ironing boards', 'Hair dryers', 'Trash cans', 'Basic small guest-use appliances'],
         keywords: ['plate', 'plates', 'bowl', 'bowls', 'cup', 'cups', 'mug', 'mugs', 'silverware', 'utensils', 'pot', 'pan', 'baking sheet', 'cutting board', 'knife', 'iron', 'ironing board', 'hair dryer', 'trash can', 'toaster', 'blender'],
         entityExceptions: 'No special entity exception noted for this category right now. If a unit item feels more like a full asset replacement than a supply, compare it against FFE Reserve before coding.'
       },
@@ -502,6 +556,7 @@
         title: 'Reactive Supplies',
         shortLabel: 'Fix It',
         coding: '7881 thru 7890 - Reactive Supplies - Type',
+        department: 'Varies by repair type (see breakdown below)',
         summary: 'Use this when the purchase is for a repair part or repair material used to restore an existing item to working condition.',
         whatIs: 'Reactive Supplies are parts and materials purchased to repair furniture, fixtures, or equipment within a unit. These items are used to restore an existing asset to proper working condition after a failure, defect, or guest issue. This category is repair-driven and tied to specific maintenance activity.',
         characteristics: [
@@ -510,12 +565,8 @@
           'Triggered by a work order or issue',
           'Does not upgrade or improve the asset'
         ],
-        examples: [
-          'Water heater components', 'Door knobs', 'Handles', 'Stove parts', 'Oven parts', 'Shower valves',
-          'Cartridges', 'Fan remotes', 'Control modules', 'Electrical switches', 'Ballasts', 'Sockets',
-          'Appliance belts', 'Knobs', 'Igniters', 'Plumbing repair parts', 'Electrical repair parts'
-        ],
-        keywords: ['door handle', 'door knob', 'knob', 'cartridge', 'valve', 'switch', 'socket', 'igniter', 'belt', 'remote', 'module', 'water heater part', 'appliance part', 'repair part', 'fan remote', 'plumbing part'],
+        examples: ['Water heater components', 'Door knobs', 'Handles', 'Stove parts', 'Oven parts', 'Shower valves', 'Cartridges', 'Fan remotes', 'Control modules', 'Electrical switches', 'Ballasts', 'Sockets', 'Appliance belts', 'Knobs', 'Igniters', 'Plumbing repair parts', 'Electrical repair parts'],
+        keywords: ['door handle', 'door knob', 'knob', 'handle', 'cartridge', 'valve', 'switch', 'socket', 'igniter', 'belt', 'remote', 'module', 'water heater part', 'appliance part', 'repair part', 'fan remote', 'plumbing part'],
         entityExceptions: 'Code within the correct Reactive Supplies type range based on the repair category. If the full asset was replaced instead of repaired, move to FFE Reserve rather than leaving it here.'
       },
       {
@@ -524,6 +575,7 @@
         title: 'FFE Reserve',
         shortLabel: 'Replace It',
         coding: '8500 - FFE Expense | 2705 - Beachside and CMI',
+        department: '8500 → 990 - Other (Income) & Expenses | 2705 → 000 - Balance Sheet',
         summary: 'Use this when the full furniture, fixture, or equipment item was replaced with a substantially similar item.',
         whatIs: 'FFE Reserve includes any furniture, fixture, or equipment within a unit that is fully replaced due to damage, failure, or end of useful life. These replacements are like-for-like and restore the unit to its original operating and guest-ready condition. They do not represent an upgrade or improvement.',
         characteristics: [
@@ -532,12 +584,9 @@
           'Driven by damage, failure, or wear',
           'No material upgrade or enhancement'
         ],
-        examples: [
-          'Couches', 'Upholstered furniture', 'Beds', 'Bed frames', 'Mattresses', 'Refrigerators', 'Stoves',
-          'Washers', 'Dryers', 'Televisions', 'Ceiling fans', 'Wall-mounted fans', 'Light fixtures', 'Dining tables', 'Dining chairs', 'Microwaves'
-        ],
+        examples: ['Couches', 'Upholstered furniture', 'Beds', 'Bed frames', 'Mattresses', 'Refrigerators', 'Stoves', 'Washers', 'Dryers', 'Televisions', 'Ceiling fans', 'Wall-mounted fans', 'Light fixtures', 'Dining tables', 'Dining chairs', 'Microwaves'],
         keywords: ['couch', 'sofa', 'bed', 'bed frame', 'mattress', 'refrigerator', 'fridge', 'stove', 'washer', 'dryer', 'tv', 'television', 'ceiling fan', 'fan', 'light fixture', 'table', 'chair', 'microwave'],
-        entityExceptions: 'For Beachside and CMI, use <strong>2705</strong> instead of 8500 when this falls under the FFE replacement category. For other applicable entities, use <strong>8500 - FFE Expense</strong>.'
+        entityExceptions: 'For Beachside and CMI, use 2705 instead of 8500 when this falls under the FFE replacement category. For other applicable entities, use 8500 - FFE Expense.'
       },
       {
         id: 'capex',
@@ -545,6 +594,7 @@
         title: 'CapEx',
         shortLabel: 'Improve It',
         coding: '9901 - CAPEX',
+        department: 'Typically 990 - Other (Income) & Expenses (confirm per project)',
         summary: 'Use this when the purchase improves, upgrades, or adds new capability beyond simply restoring the unit to prior condition.',
         whatIs: 'CapEx includes any item or project purchased for a unit that improves the asset beyond its existing condition. These expenses add new capability, extend useful life, enhance quality, or materially increase the value or functionality of the unit. CapEx items are typically new additions or upgrades and are not replacements of existing items with similar ones.',
         characteristics: [
@@ -553,15 +603,30 @@
           'Extends useful life or increases value',
           'Not required to simply restore operations'
         ],
-        examples: [
-          'Landscaping improvements', 'Landscape lighting', 'Exterior lighting', 'New furniture plans', 'Design refreshes',
-          'Adding a washer where none existed', 'Adding a dryer where none existed', 'Upgrading finishes', 'Upgrading layouts',
-          'Installing new amenities', 'Installing new systems'
-        ],
+        examples: ['Landscaping improvements', 'Landscape lighting', 'Exterior lighting', 'New furniture plans', 'Design refreshes', 'Adding a washer where none existed', 'Adding a dryer where none existed', 'Upgrading finishes', 'Upgrading layouts', 'Installing new amenities', 'Installing new systems'],
         keywords: ['upgrade', 'improvement', 'landscaping', 'landscape lighting', 'exterior lighting', 'design refresh', 'new amenity', 'new system', 'upgrade finish', 'layout improvement', 'add washer', 'add dryer'],
         entityExceptions: 'Use this when the purchase clearly creates improvement or added capability. If it is only replacing an existing like-for-like item, compare against FFE Reserve before coding here.'
       }
     ];
+
+    const reactiveBreakdown = [
+      { gl: '7881', title: 'Reactive Supplies - Building', dept: '320 - Maintenance - Facility Services', icon: '🧱', keywords: ['building', 'wall', 'drywall', 'trim', 'hinge', 'door', 'frame', 'cabinet', 'full door', 'hardware', 'lock'] },
+      { gl: '7882', title: 'Reactive Supplies - Electrical', dept: '320 - Maintenance - Facility Services', icon: '⚡', keywords: ['electrical', 'switch', 'outlet', 'breaker', 'light switch', 'socket', 'wiring', 'ballast', 'gfci'] },
+      { gl: '7883', title: 'Reactive Supplies - Kitchen Equipment', dept: '320 - Maintenance - Facility Services', icon: '🍳', keywords: ['microwave part', 'stove part', 'oven part', 'dishwasher part', 'range', 'appliance part', 'kitchen equipment'] },
+      { gl: '7884', title: 'Reactive Supplies - Fire & Safety', dept: '320 - Maintenance - Facility Services', icon: '🧯', keywords: ['smoke detector', 'fire extinguisher', 'co detector', 'alarm', 'safety', 'fire safety'] },
+      { gl: '7885', title: 'Reactive Supplies - Grounds', dept: '321 - Maintenance - Landscaping', icon: '🌿', keywords: ['grounds', 'landscaping', 'mulch', 'plants', 'grass', 'irrigation outside', 'exterior grounds'] },
+      { gl: '7886', title: 'Reactive Supplies - HVAC', dept: '320 - Maintenance - Facility Services', icon: '❄️', keywords: ['hvac', 'ac', 'air conditioner', 'thermostat', 'air handler', 'filter', 'condenser', 'blower'] },
+      { gl: '7887', title: 'Reactive Supplies - Laundry', dept: '320 - Maintenance - Facility Services', icon: '🧺', keywords: ['laundry', 'washer part', 'dryer part', 'lint', 'laundry equipment'] },
+      { gl: '7888', title: 'Reactive Supplies - Plumbing', dept: '320 - Maintenance - Facility Services', icon: '🚿', keywords: ['plumbing', 'valve', 'cartridge', 'faucet', 'toilet', 'supply line', 'drain', 'shower', 'water line'] },
+      { gl: '7889', title: 'Reactive Supplies - Pool', dept: '322 - Maintenance - Pool', icon: '🏊', keywords: ['pool', 'pool pump', 'chlorinator', 'skimmer', 'pool filter', 'pool motor'] },
+      { gl: '7890', title: 'Reactive Supplies - Other', dept: '320 - Maintenance - Facility Services (default)', icon: '🧩', keywords: ['other', 'misc', 'miscellaneous'] }
+    ];
+
+    const decisionRules = {
+      reactiveBias: ['part', 'handle', 'knob', 'cartridge', 'valve', 'switch', 'socket', 'hinge', 'belt', 'remote', 'module'],
+      replacementBias: ['full door', 'replace door', 'new door', 'whole door', 'entire door', 'full item', 'replace unit', 'replace appliance'],
+      improvementBias: ['upgrade', 'improve', 'enhance', 'new feature', 'add new', 'better than before']
+    };
 
     const followUpMap = {
       'reactive-supplies': {
@@ -596,17 +661,93 @@
     const followUpOptions = document.getElementById('followUpOptions');
 
     let selectedBaseId = null;
-    let selectedFinalId = null;
     let selectedFollowUpResult = null;
 
+    function extractLeadingCode(value) {
+      const match = String(value).match(/^\d+/);
+      return match ? match[0] : String(value).split(' ')[0];
+    }
+
+    function getReactiveMatch(term) {
+      if (!term) return null;
+      const lower = term.toLowerCase();
+      return reactiveBreakdown.find((entry) =>
+        entry.title.toLowerCase().includes(lower) ||
+        entry.keywords.some((keyword) => lower.includes(keyword) || keyword.includes(lower))
+      ) || null;
+    }
+
+    function detectSuggestedCategory(term) {
+      if (!term) return null;
+      const lower = term.toLowerCase();
+
+      if (decisionRules.improvementBias.some((word) => lower.includes(word))) {
+        return 'capex';
+      }
+      if (decisionRules.replacementBias.some((word) => lower.includes(word))) {
+        return 'ffe-reserve';
+      }
+      if (decisionRules.reactiveBias.some((word) => lower.includes(word))) {
+        return 'reactive-supplies';
+      }
+
+      return null;
+    }
+
+    function getGuidanceMessage(term, item, reactiveMatch) {
+      if (!term || !item) return '';
+      const lower = term.toLowerCase();
+
+      if (item.id === 'reactive-supplies' && reactiveMatch && (lower.includes('handle') || lower.includes('knob') || lower.includes('cartridge'))) {
+        return 'This looks like a repair part, not a full replacement.';
+      }
+      if (item.id === 'ffe-reserve' && (lower.includes('full door') || lower.includes('whole door') || lower.includes('replace door') || lower.includes('entire door'))) {
+        return 'This looks like a full asset replacement rather than a repair part.';
+      }
+      if (item.id === 'capex' && decisionRules.improvementBias.some((word) => lower.includes(word))) {
+        return 'This looks like an improvement or upgrade beyond restoring prior condition.';
+      }
+
+      return '';
+    }
+
+    function buildCopyText(item, reactiveMatch) {
+      const lines = reactiveMatch
+        ? [
+            `Recommended Coding: ${reactiveMatch.gl} - ${reactiveMatch.title}`,
+            `Department: ${reactiveMatch.dept}`,
+            `Decision Bucket: ${item.title}`
+          ]
+        : [
+            `Recommended Coding: ${item.coding}`,
+            `Department: ${item.department}`
+          ];
+
+      return lines.join('\n');
+    }
+
+    function getCopyValues(item, reactiveMatch) {
+      if (reactiveMatch) {
+        return {
+          gl: reactiveMatch.gl,
+          dept: extractLeadingCode(reactiveMatch.dept)
+        };
+      }
+
+      return {
+        gl: extractLeadingCode(item.coding),
+        dept: extractLeadingCode(item.department)
+      };
+    }
+
     function renderButtons() {
-      questionGroup.innerHTML = codingOptions.map(option => `
+      questionGroup.innerHTML = codingOptions.map((option) => `
         <button class="option-btn" data-id="${option.id}">${option.buttonLabel}</button>
       `).join('');
 
-      document.querySelectorAll('.option-btn').forEach(button => {
+      document.querySelectorAll('.option-btn').forEach((button) => {
         button.addEventListener('click', () => {
-          document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.option-btn').forEach((btn) => btn.classList.remove('active'));
           button.classList.add('active');
           selectedBaseId = button.dataset.id;
           selectedFollowUpResult = null;
@@ -627,13 +768,13 @@
 
       followUpCard.classList.add('show');
       followUpCard.querySelector('.follow-up-question').textContent = `Step 2 · ${config.question}`;
-      followUpOptions.innerHTML = config.answers.map((answer, index) => `
-        <button class="mini-btn" data-result="${answer.result}" data-index="${index}">${answer.label}</button>
+      followUpOptions.innerHTML = config.answers.map((answer) => `
+        <button class="mini-btn" data-result="${answer.result}">${answer.label}</button>
       `).join('');
 
-      document.querySelectorAll('.mini-btn').forEach(button => {
+      document.querySelectorAll('.mini-btn').forEach((button) => {
         button.addEventListener('click', () => {
-          document.querySelectorAll('.mini-btn').forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.mini-btn').forEach((btn) => btn.classList.remove('active'));
           button.classList.add('active');
           selectedFollowUpResult = button.dataset.result;
           renderFinalResult();
@@ -641,29 +782,61 @@
       });
     }
 
+    function copyTextToClipboard(text, button, fallbackEl) {
+      const original = button.textContent;
+      const onSuccess = () => {
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+          button.textContent = original;
+        }, 1200);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(onSuccess).catch(() => {
+          fallbackEl.value = text;
+          fallbackEl.select();
+          document.execCommand('copy');
+          onSuccess();
+        });
+        return;
+      }
+
+      fallbackEl.value = text;
+      fallbackEl.select();
+      document.execCommand('copy');
+      onSuccess();
+    }
+
     function renderFinalResult() {
       const finalId = selectedFollowUpResult || selectedBaseId;
-      selectedFinalId = finalId;
-      const item = codingOptions.find(entry => entry.id === finalId);
+      const item = codingOptions.find((entry) => entry.id === finalId);
+      renderBottomReactiveBreakdown(finalId === 'reactive-supplies');
+      const searchTerm = searchInput.value.trim();
+      const reactiveMatch = item && item.id === 'reactive-supplies' ? getReactiveMatch(searchTerm) : null;
 
       if (!item) {
         resultArea.className = 'result-empty';
-        resultArea.innerHTML = 'Choose a purchase type or search for an item to show the recommended coding.';
+        resultArea.textContent = 'Choose a purchase type or search for an item to show the recommended coding.';
         return;
       }
 
       const changedByFollowUp = selectedBaseId && selectedFollowUpResult && selectedBaseId !== selectedFollowUpResult;
-      const baseItem = codingOptions.find(entry => entry.id === selectedBaseId);
+      const baseItem = codingOptions.find((entry) => entry.id === selectedBaseId);
+      const copyText = buildCopyText(item, reactiveMatch);
+      const guidanceMessage = getGuidanceMessage(searchTerm, item, reactiveMatch);
 
       resultArea.className = 'result-card';
       resultArea.innerHTML = `
         <div class="top-badges">
           <div class="badge success">Recommended Coding • ${item.shortLabel}</div>
-          ${changedByFollowUp ? `<div class="badge warning">Updated from ${baseItem.title} after follow-up</div>` : ''}
+          ${changedByFollowUp && baseItem ? `<div class="badge warning">Updated from ${baseItem.title} after follow-up</div>` : ''}
         </div>
 
         <h2>${item.title}</h2>
         <div class="code-line">${item.coding}</div>
+        <div class="code-line" style="margin-top:-8px;background:#eef2ff;border-color:#c7d2fe;font-weight:600;">Dept: ${item.department}</div>
+
+        ${guidanceMessage ? `<div class="smart-banner">${guidanceMessage}</div>` : ''}
 
         <div class="summary-box">
           <h3>Recommended coding</h3>
@@ -675,11 +848,10 @@
             <h3>What is it?</h3>
             <p>${item.whatIs}</p>
           </div>
-
           <div class="info-block">
             <h3>Key characteristics</h3>
             <ul>
-              ${item.characteristics.map(point => `<li>${point}</li>`).join('')}
+              ${item.characteristics.map((point) => `<li>${point}</li>`).join('')}
             </ul>
           </div>
         </div>
@@ -692,26 +864,64 @@
         <div class="examples">
           <h3>Common examples</h3>
           <div class="chip-wrap">
-            ${item.examples.map(example => `<span class="chip">${example}</span>`).join('')}
+            ${item.examples.map((example) => `<span class="chip">${example}</span>`).join('')}
           </div>
+        </div>
+
+        <div class="copy-box">
+          <h3>Copy coding</h3>
+          <div class="copy-actions">
+            <button class="copy-btn" id="copyGLBtn">Copy GL</button>
+            <button class="copy-btn" id="copyDeptBtn">Copy Dept</button>
+            <button class="copy-btn" id="copyBothBtn">Copy GL + Dept</button>
+          </div>
+          <textarea id="copyOutput" class="copy-output" readonly>${copyText}</textarea>
         </div>
 
         <div class="footer-note">
           Search and follow-up selections are meant to guide the coding choice. For unusual edge cases, compare repair vs. full replacement vs. improvement before finalizing.
         </div>
       `;
+
+      const copyGLBtn = document.getElementById('copyGLBtn');
+      const copyDeptBtn = document.getElementById('copyDeptBtn');
+      const copyBothBtn = document.getElementById('copyBothBtn');
+      const copyOutput = document.getElementById('copyOutput');
+      const copyValues = getCopyValues(item, reactiveMatch);
+
+      if (copyGLBtn) {
+        copyGLBtn.addEventListener('click', () => {
+          copyTextToClipboard(copyValues.gl, copyGLBtn, copyOutput);
+        });
+      }
+
+      if (copyDeptBtn) {
+        copyDeptBtn.addEventListener('click', () => {
+          copyTextToClipboard(copyValues.dept, copyDeptBtn, copyOutput);
+        });
+      }
+
+      if (copyBothBtn) {
+        copyBothBtn.addEventListener('click', () => {
+          copyTextToClipboard(`${copyValues.gl} | ${copyValues.dept}`, copyBothBtn, copyOutput);
+        });
+      }
     }
 
     function handleSearch() {
       const term = searchInput.value.trim().toLowerCase();
       matchList.innerHTML = '';
 
-      if (!term) return;
+      if (!term) {
+        return;
+      }
 
+      const suggestedCategory = detectSuggestedCategory(term);
       const matches = [];
-      codingOptions.forEach(option => {
-        const matchedExamples = option.examples.filter(example => example.toLowerCase().includes(term));
-        const matchedKeywords = option.keywords.filter(keyword => keyword.toLowerCase().includes(term) || term.includes(keyword.toLowerCase()));
+
+      codingOptions.forEach((option) => {
+        const matchedExamples = option.examples.filter((example) => example.toLowerCase().includes(term));
+        const matchedKeywords = option.keywords.filter((keyword) => keyword.toLowerCase().includes(term) || term.includes(keyword.toLowerCase()));
 
         if (matchedExamples.length || matchedKeywords.length || option.title.toLowerCase().includes(term)) {
           matches.push({ option, matchedExamples, matchedKeywords });
@@ -723,15 +933,16 @@
         return;
       }
 
-      matchList.innerHTML = matches.map(match => `
-        <span class="match-chip">${match.option.title}</span>
-      `).join('');
+      matchList.innerHTML = matches.map((match) => `<span class="match-chip">${match.option.title}</span>`).join('');
 
-      const bestMatch = matches[0].option;
+      const bestMatch = suggestedCategory
+        ? codingOptions.find((option) => option.id === suggestedCategory) || matches[0].option
+        : matches[0].option;
+
       selectedBaseId = bestMatch.id;
       selectedFollowUpResult = null;
 
-      document.querySelectorAll('.option-btn').forEach(btn => {
+      document.querySelectorAll('.option-btn').forEach((btn) => {
         btn.classList.toggle('active', btn.dataset.id === bestMatch.id);
       });
 
@@ -739,8 +950,79 @@
       renderFinalResult();
     }
 
+    function renderBottomReactiveBreakdown(showSection) {
+      const section = document.getElementById('bottomReactiveSection');
+      const container = document.getElementById('bottomReactiveBreakdown');
+      if (!section || !container) return;
+
+      section.style.display = showSection ? 'block' : 'none';
+
+      if (!showSection) {
+        container.innerHTML = '';
+        return;
+      }
+
+      container.innerHTML = reactiveBreakdown.map((entry) => `
+        <div class="reactive-item">
+          <div class="icon">${entry.icon}</div>
+          <div class="gl">${entry.gl}</div>
+          <div class="name">${entry.title}</div>
+          <div class="dept-note">Department: ${entry.dept}</div>
+        </div>
+      `).join('');
+    }
+
+    function runTests() {
+      console.assert(
+        buildCopyText(codingOptions[0], null) === 'Recommended Coding: 7706 - Unit Supplies\nDepartment: 300 - Property Management - Prop. Service G&A',
+        'buildCopyText should return two lines for non-reactive items'
+      );
+
+      const outletMatch = getReactiveMatch('outlet');
+      console.assert(outletMatch && outletMatch.gl === '7882', 'outlet should match electrical');
+
+      const poolMatch = getReactiveMatch('pool pump');
+      console.assert(poolMatch && poolMatch.gl === '7889', 'pool pump should match pool');
+
+      const grassMatch = getReactiveMatch('grass');
+      console.assert(grassMatch && grassMatch.gl === '7885', 'grass should match grounds');
+
+      const reactiveText = buildCopyText(codingOptions[1], { gl: '7888', title: 'Reactive Supplies - Plumbing', dept: '320 - Maintenance - Facility Services' });
+      console.assert(
+        reactiveText === 'Recommended Coding: 7888 - Reactive Supplies - Plumbing\nDepartment: 320 - Maintenance - Facility Services\nDecision Bucket: Reactive Supplies',
+        'reactive copy text should include bucket line'
+      );
+
+      const standardCopyValues = getCopyValues(codingOptions[0], null);
+      console.assert(standardCopyValues.gl === '7706', 'standard GL copy value should be 7706');
+      console.assert(standardCopyValues.dept === '300', 'standard dept copy value should be 300');
+
+      const reactiveCopyValues = getCopyValues(codingOptions[1], { gl: '7889', title: 'Reactive Supplies - Pool', dept: '322 - Maintenance - Pool' });
+      console.assert(reactiveCopyValues.gl === '7889', 'reactive GL copy value should be 7889');
+      console.assert(reactiveCopyValues.dept === '322', 'reactive dept copy value should be 322');
+
+      console.assert(detectSuggestedCategory('door handle') === 'reactive-supplies', 'door handle should bias reactive supplies');
+      console.assert(detectSuggestedCategory('replace door') === 'ffe-reserve', 'replace door should bias FFE reserve');
+      console.assert(detectSuggestedCategory('upgrade door') === 'capex', 'upgrade door should bias CapEx');
+
+      console.assert(
+        getGuidanceMessage('door handle', codingOptions[1], { gl: '7881', title: 'Reactive Supplies - Building', dept: '320 - Maintenance - Facility Services' }) === 'This looks like a repair part, not a full replacement.',
+        'door handle guidance should explain repair part logic'
+      );
+
+      console.assert(extractLeadingCode('300 - Property Management - Prop. Service G&A') === '300', 'extractLeadingCode should pull department code');
+      console.assert(extractLeadingCode('7706 - Unit Supplies') === '7706', 'extractLeadingCode should pull GL code');
+
+      renderBottomReactiveBreakdown(true);
+      console.assert(document.getElementById('bottomReactiveSection').style.display === 'block', 'reactive section should show when requested');
+      renderBottomReactiveBreakdown(false);
+      console.assert(document.getElementById('bottomReactiveSection').style.display === 'none', 'reactive section should hide when not requested');
+    }
+
     renderButtons();
+    renderBottomReactiveBreakdown(false);
     searchInput.addEventListener('input', handleSearch);
+    runTests();
   </script>
 </body>
 </html>
